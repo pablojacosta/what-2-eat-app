@@ -1,0 +1,13 @@
+.searchButton {
+  width: 13rem;
+
+  button {
+    background-color: var(--color-beta);
+    border: none;
+
+    &:hover {
+      background-color: var(--color-white);
+      color: var(--color-beta);
+    }
+  }
+}

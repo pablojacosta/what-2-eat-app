@@ -1,37 +1,34 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { useIngredientsStore } from "../../store/useIngredientsStore";
+import { useSuggestionsStore } from "../../store/useSuggestionsStore";
 import styles from "./SuggestionsList.module.scss";
 
-interface ISuggestionsList {
-  onClickSuggestion: (e: any) => void;
-  filteredSuggestions: any;
-  activeSuggestionIndex: any;
-  showSuggestions: any;
-}
+const SuggestionsList = () => {
+  const { filteredSuggestions, setFilteredSuggestions, setShowSuggestions } =
+    useSuggestionsStore();
+  const { setNewIngredient } = useIngredientsStore();
 
-const SuggestionsList = ({
-  filteredSuggestions,
-  activeSuggestionIndex,
-  onClickSuggestion,
-}: ISuggestionsList) => {
-  return filteredSuggestions.length ? (
-    <ul className={styles.suggestionsList}>
-      {filteredSuggestions.map((suggestion: any, index: number) => {
-        if (index === activeSuggestionIndex) {
-          return <li key={suggestion.id}>{suggestion.name}</li>;
-        }
+  const onClickSuggestion = (e: any) => {
+    setFilteredSuggestions([]);
+    setNewIngredient(e.target.innerText);
+    setShowSuggestions(false);
+  };
 
-        return (
-          <li key={suggestion.id} onClick={onClickSuggestion}>
-            {suggestion.name}
-          </li>
-        );
-      })}
-    </ul>
-  ) : (
-    <div>
-      <div>
-        <div>Sorry, no suggestions... Please type again.</div>
-      </div>
+  return (
+    <div className={styles.suggestionsList}>
+      {filteredSuggestions.length ? (
+        <ul>
+          {filteredSuggestions.map((suggestion: any) => (
+            <li key={suggestion.id} onClick={onClickSuggestion}>
+              {suggestion.name}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div>
+          <p>Sorry, no suggestions... Please type again.</p>
+        </div>
+      )}
     </div>
   );
 };

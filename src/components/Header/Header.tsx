@@ -1,15 +1,13 @@
+import Container from "../elements/Container";
 import styles from "./Header.module.scss";
 
-const Header = () => {
-  return (
+const Header = () => (
+  <Container>
     <div className={styles.header}>
-      <div>
-        <div>What's in your fridge/pantry?</div>
-      </div>
-
-      <div>Add the ingredients you would like to cook with</div>
+      <h1>What's in your fridge/pantry?</h1>
+      <h3>Add the ingredients you would like to cook with</h3>
     </div>
-  );
-};
+  </Container>
+);
 
 export default Header;

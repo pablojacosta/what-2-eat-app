@@ -1,11 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import useGetRecipesData from "../../hooks/useGetRecipesData";
 import styles from "./SearchButton.module.scss";
 
-interface ISearchButton {
-  getRecipesData: any;
-}
+const SearchButton = () => {
+  const { getRecipesData } = useGetRecipesData();
 
-const SearchButton = ({ getRecipesData }: ISearchButton) => {
   return (
     <div className={styles.searchButton}>
       <button onClick={getRecipesData}>Search recipes!</button>

@@ -1,0 +1,91 @@
+@use "./_colors.scss";
+@use "./_fonts.scss";
+
+:root {
+  --font-primary: #{fonts.$fontPrimary};
+  --font-secondary: #{fonts.$fontSecondary};
+
+  --color-white: #{colors.$colorWhite};
+  --color-black: #{colors.$colorBlack};
+  --color-gray: #{colors.$colorGray};
+  --color-alpha: #{colors.$colorAlpha};
+  --color-beta: #{colors.$colorBeta};
+  --color-gamma: #{colors.$colorGamma};
+  --color-delta: #{colors.$colorDelta};
+  --color-epsilon: #{colors.$colorEpsilon};
+  --color-zeta: #{colors.$colorZeta};
+  --color-eta: #{colors.$colorEta};
+
+  --gradient-alpha: #{colors.$gradientAlpha};
+  --gradient-beta: #{colors.$gradientBeta};
+  --gradient-gamma: #{colors.$gradientGamma};
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: var(--font-primary);
+}
+
+button {
+  color: #ffffff;
+  font-family: var(--font-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h6 {
+  margin: 0;
+  font-family: var(--font-secondary);
+  font-weight: normal;
+  padding: 0;
+  background-color: var(--color-black);
+}
+
+h1 {
+  text-align: center;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  margin-bottom: 4rem;
+  padding: 2rem;
+}
+
+h3 {
+  letter-spacing: 0.04rem;
+  font-size: 1.875rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+h5 {
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin: 0 0 0.8rem 0;
+  letter-spacing: 0.115em;
+  line-height: 1.625rem;
+}
+
+h6 {
+  font-size: 1.875rem;
+  line-height: 2rem;
+  letter-spacing: 0.02rem;
+}
+
+p {
+  color: #cdcdcd;
+  line-height: 1.4375rem;
+}
+
+ul {
+  font-family: var(--font-secondary);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+}

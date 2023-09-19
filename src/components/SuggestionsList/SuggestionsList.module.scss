@@ -1,0 +1,23 @@
+.suggestionsList {
+  ul {
+    list-style: none;
+    overflow-y: auto;
+    height: 10rem;
+    background-color: var(--color-black);
+
+    scrollbar-color: black;
+
+    li {
+      cursor: pointer;
+
+      &:hover {
+        color: var(--color-beta);
+      }
+    }
+  }
+
+  p {
+    font-size: 1.3rem;
+    color: var(--color-white);
+  }
+}
