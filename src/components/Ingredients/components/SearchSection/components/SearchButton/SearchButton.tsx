@@ -1,4 +1,4 @@
-import useGetRecipesData from "../../hooks/useGetRecipesData";
+import useGetRecipesData from "../../../../../../hooks/useGetRecipesData";
 import styles from "./SearchButton.module.scss";
 
 const SearchButton = () => {
