@@ -6,11 +6,15 @@ import styles from "./SuggestionsList.module.scss";
 const SuggestionsList = () => {
   const { filteredSuggestions, setFilteredSuggestions, setShowSuggestions } =
     useSuggestionsStore();
-  const { setNewIngredient } = useIngredientsStore();
+  const { setNewIngredient, ingredients } = useIngredientsStore();
+  const isMaxIngredients = ingredients.length === 9;
 
   const onClickSuggestion = (e: any) => {
-    setFilteredSuggestions([]);
-    setNewIngredient(e.target.innerText);
+    if (!isMaxIngredients) {
+      setFilteredSuggestions([]);
+      setNewIngredient(e.target.innerText);
+      setShowSuggestions(false);
+    }
     setShowSuggestions(false);
   };
 
@@ -24,6 +28,10 @@ const SuggestionsList = () => {
             </li>
           ))}
         </ul>
+      ) : isMaxIngredients ? (
+        <div>
+          <p>Sorry, nine ingredients max...</p>
+        </div>
       ) : (
         <div>
           <p>Sorry, no suggestions... Please type again.</p>

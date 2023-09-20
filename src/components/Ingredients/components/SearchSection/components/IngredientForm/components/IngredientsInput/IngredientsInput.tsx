@@ -5,20 +5,25 @@ import { useIngredientsStore } from "@store/useIngredientsStore";
 import { useSuggestionsStore } from "@store/useSuggestionsStore";
 
 const IngredientsInput = () => {
-  const { newIngredient, setNewIngredient } = useIngredientsStore();
+  const { newIngredient, setNewIngredient, ingredients } =
+    useIngredientsStore();
   const { showSuggestions, setFilteredSuggestions, setShowSuggestions } =
     useSuggestionsStore();
+  const isMaxIngredients = ingredients.length === 9;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const userInput = e.target.value;
-    setNewIngredient(e.target.value);
+    if (!isMaxIngredients) {
+      const userInput = e.target.value;
+      setNewIngredient(e.target.value);
 
-    const unLinked = suggestions.filter(
-      (suggestion) =>
-        suggestion.name.toLowerCase().indexOf(userInput.toLowerCase()) > -1
-    );
+      const unLinked = suggestions.filter(
+        (suggestion) =>
+          suggestion.name.toLowerCase().indexOf(userInput.toLowerCase()) > -1
+      );
 
-    setFilteredSuggestions(unLinked);
+      setFilteredSuggestions(unLinked);
+      setShowSuggestions(true);
+    }
     setShowSuggestions(true);
   };
 
@@ -30,6 +35,7 @@ const IngredientsInput = () => {
         onChange={handleInputChange}
       />
       {showSuggestions && newIngredient && <SuggestionsList />}
+      {showSuggestions && isMaxIngredients && <SuggestionsList />}
     </div>
   );
 };
