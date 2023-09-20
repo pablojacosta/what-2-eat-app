@@ -16,6 +16,7 @@ const AddedIngredients = () => {
 
   return (
     <div className={styles.addedIngredients}>
+      <p className={styles.backText}>INGREDIENTS</p>
       <ul>
         {ingredients.map((ingredient: string) => (
           <li key={ingredient}>

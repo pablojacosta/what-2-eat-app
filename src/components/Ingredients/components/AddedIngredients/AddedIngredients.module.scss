@@ -2,11 +2,35 @@
 
 .addedIngredients {
   height: 11rem;
-  background-color: black;
+  background-color: var(--color-black);
   margin-bottom: 3rem;
   border-radius: 1rem;
   display: flex;
   width: 100%;
+  position: relative;
+
+  .backText {
+    position: absolute;
+    font-size: 3.5rem;
+    top: 8%;
+    left: 11%;
+    opacity: 0.15;
+    z-index: 0;
+
+    @include responsives.resolution__mobile__m {
+      left: 7%;
+    }
+
+    @include responsives.resolution__mobile {
+      left: 5%;
+    }
+
+    @include responsives.resolution__mobile__s {
+      font-size: 2.5rem;
+      left: 7.5%;
+      top: 19%;
+    }
+  }
 
   ul {
     list-style: none;
@@ -15,13 +39,15 @@
     flex-wrap: wrap;
     gap: 0.5rem;
     padding-left: 2rem;
+    padding-top: 0.5rem;
+    position: relative;
 
     @include responsives.resolution__mobile__m {
-      padding: 0 2.7rem 0 2rem;
+      padding: 0.5rem 2.7rem 0 2rem;
     }
 
     @include responsives.resolution__mobile {
-      padding: 0 2.3rem 0 1.5rem;
+      padding: 0.5rem 2.3rem 0 1.5rem;
     }
 
     @include responsives.resolution__mobile__s {

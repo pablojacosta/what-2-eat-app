@@ -1,3 +1,5 @@
+@use "@styles/_responsives" as responsives;
+
 .searchButton {
   button {
     background-color: var(--color-orange);
@@ -9,6 +11,11 @@
     font-size: 0.875rem;
     font-weight: 700;
     letter-spacing: 0.04rem;
+
+    @include responsives.resolution__mobile__m {
+      font-size: 0.75rem;
+      width: 7rem;
+    }
 
     &:hover {
       background-color: var(--color-white);

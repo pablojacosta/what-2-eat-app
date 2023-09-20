@@ -1,3 +1,5 @@
+@use "@styles/_responsives" as responsives;
+
 .suggestionsList {
   ul {
     list-style: none;
@@ -6,6 +8,10 @@
     height: 10rem;
     background-color: var(--color-black);
     border-radius: 1rem;
+
+    @include responsives.resolution__mobile__s {
+      width: 7rem;
+    }
 
     li {
       cursor: pointer;

@@ -1,6 +1,7 @@
+@use "@styles/_responsives" as responsives;
+
 .ingredientForm {
-  display: flex;
-  justify-content: center;
-  gap: 5rem;
-  width: 100%;
+  @include responsives.resolution__mobile__m {
+    width: 100%;
+  }
 }
