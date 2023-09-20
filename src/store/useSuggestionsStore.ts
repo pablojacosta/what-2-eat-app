@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { SUGGESTIONS_STORE } from "../constants/env";
+import { SUGGESTIONS_STORE } from "@constants/env";
 
 interface ISuggestions {
   name: string;

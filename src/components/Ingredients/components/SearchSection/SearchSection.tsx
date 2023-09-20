@@ -1,4 +1,4 @@
-import Container from "../../../elements/Container";
+import Container from "@elements/Container";
 import styles from "./SearchSection.module.scss";
 import IngredientForm from "./components/IngredientForm";
 import SearchButton from "./components/SearchButton";

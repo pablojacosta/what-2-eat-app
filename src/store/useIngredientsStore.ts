@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { INGREDIENTS_STORE } from "../constants/env";
+import { INGREDIENTS_STORE } from "@constants/env";
 
 interface IIngredientsStore {
   newIngredient: string | null;

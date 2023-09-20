@@ -1,6 +1,6 @@
-import { useIngredientsStore } from "../../../../store/useIngredientsStore";
-import Container from "../../../elements/Container";
-import IconCloseOutline from "../../../elements/Icons/CloseIcon/CloseIcon";
+import { useIngredientsStore } from "@store/useIngredientsStore";
+import Container from "@elements/Container";
+import IconCloseOutline from "@elements/Icons/CloseIcon/CloseIcon";
 import styles from "./AddedIngredients.module.scss";
 
 const AddedIngredients = () => {

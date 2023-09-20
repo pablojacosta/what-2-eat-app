@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Header from "./components/Header/Header";
 import suggestions from "./utils/ingredients.json";
 import styles from "./App.module.scss";
-import "../src/styles/globals.scss";
+import "@styles/globals.scss";
 import Ingredients from "./components/Ingredients";
 import { useIngredientsStore } from "./store/useIngredientsStore";
 

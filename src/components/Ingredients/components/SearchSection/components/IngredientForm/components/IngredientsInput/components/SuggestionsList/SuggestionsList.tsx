@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useIngredientsStore } from "../../../../../../../../../../store/useIngredientsStore";
-import { useSuggestionsStore } from "../../../../../../../../../../store/useSuggestionsStore";
+import { useIngredientsStore } from "@store/useIngredientsStore";
+import { useSuggestionsStore } from "@store/useSuggestionsStore";
 import styles from "./SuggestionsList.module.scss";
 
 const SuggestionsList = () => {

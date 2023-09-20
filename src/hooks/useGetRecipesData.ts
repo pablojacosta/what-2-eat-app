@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useIngredientsStore } from "../store/useIngredientsStore";
+import { useIngredientsStore } from "@store/useIngredientsStore";
 import axios from "axios";
-import { api_key } from "../constants/env";
+import { api_key } from "@constants/env";
 
 const useGetRecipesData = () => {
   const {

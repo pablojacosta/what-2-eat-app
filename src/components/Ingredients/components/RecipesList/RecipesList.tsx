@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import useGetRecipesData from "../../../../hooks/useGetRecipesData";
-import { useIngredientsStore } from "../../../../store/useIngredientsStore";
+import useGetRecipesData from "@hooks/useGetRecipesData";
+import { useIngredientsStore } from "@store/useIngredientsStore";
 import Recipe from "./components/Recipe";
-import Container from "../../../elements/Container";
+import Container from "@elements/Container";
 import styles from "./RecipesList.module.scss";
 
 const RecipesList = () => {
