@@ -1,5 +1,11 @@
+@use "@styles/_responsives" as responsives;
+
 .searchSection {
   display: flex;
   gap: 5rem;
   width: 100%;
+
+  @include responsives.resolution__mobile__m {
+    gap: 2rem;
+  }
 }

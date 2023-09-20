@@ -2,10 +2,10 @@
   ul {
     list-style: none;
     overflow-y: auto;
+    overflow-x: hidden;
     height: 10rem;
     background-color: var(--color-black);
-
-    scrollbar-color: black;
+    border-radius: 1rem;
 
     li {
       cursor: pointer;
