@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useIngredientsStore } from "@store/useIngredientsStore";
-import { useSuggestionsStore } from "@store/useSuggestionsStore";
+import { ISuggestions, useSuggestionsStore } from "@store/useSuggestionsStore";
 import styles from "./SuggestionsList.module.scss";
 
 const SuggestionsList = () => {
@@ -22,7 +22,7 @@ const SuggestionsList = () => {
     <div className={styles.suggestionsList}>
       {filteredSuggestions.length ? (
         <ul>
-          {filteredSuggestions.map((suggestion: any) => (
+          {filteredSuggestions.map((suggestion: ISuggestions) => (
             <li key={suggestion.id} onClick={onClickSuggestion}>
               {suggestion.name}
             </li>
