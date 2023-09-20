@@ -3,6 +3,7 @@ import suggestions from "@utils/ingredients.json";
 import SuggestionsList from "./components/SuggestionsList";
 import { useIngredientsStore } from "@store/useIngredientsStore";
 import { useSuggestionsStore } from "@store/useSuggestionsStore";
+import { useRecipesStore } from "@store/useRecipesStore";
 
 const IngredientsInput = () => {
   const { newIngredient, setNewIngredient, ingredients } =
@@ -10,8 +11,13 @@ const IngredientsInput = () => {
   const { showSuggestions, setFilteredSuggestions, setShowSuggestions } =
     useSuggestionsStore();
   const isMaxIngredients = ingredients.length === 9;
+  const { recipesToDisplay, setRecipesToDisplay } = useRecipesStore();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (recipesToDisplay.length) {
+      setRecipesToDisplay([]);
+    }
+
     if (!isMaxIngredients) {
       const userInput = e.target.value;
       setNewIngredient(e.target.value);

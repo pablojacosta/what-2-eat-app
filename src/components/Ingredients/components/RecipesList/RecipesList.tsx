@@ -12,16 +12,20 @@ const RecipesList = () => {
   const { recipesToDisplay } = useRecipesStore();
 
   return (
-    <div className={styles.recipesList}>
-      {recipesToDisplay.map((recipe: IRecipe) => (
-        <Recipe
-          key={recipe.id}
-          recipeId={recipe.id}
-          recipeTitle={recipe.title}
-          recipeImage={recipe.image}
-        />
-      ))}
-    </div>
+    <>
+      {recipesToDisplay.length > 0 && (
+        <div className={styles.recipesList}>
+          {recipesToDisplay.map((recipe: IRecipe) => (
+            <Recipe
+              key={recipe.id}
+              recipeId={recipe.id}
+              recipeTitle={recipe.title}
+              recipeImage={recipe.image}
+            />
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 
