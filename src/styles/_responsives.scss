@@ -59,7 +59,7 @@
 }
 
 @mixin resolution__laptop__xs {
-  @media only screen and (max-width: 930px) {
+  @media only screen and (max-width: 910px) {
     @content;
   }
 }

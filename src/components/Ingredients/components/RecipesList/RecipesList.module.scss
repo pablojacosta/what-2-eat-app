@@ -1,5 +1,37 @@
+@use "@styles/_responsives" as responsives;
+
 .recipesList {
   display: flex;
   gap: 0.5rem;
   margin-top: 1rem;
+  justify-content: center;
+  height: 20rem;
+  width: 100%;
+  background-color: var(--color-black);
+  padding: 0.5rem 0;
+  border-radius: 1rem;
+
+  @include responsives.resolution__laptop__xs {
+    width: 43rem;
+    height: 18rem;
+  }
+
+  @include responsives.resolution__tablet {
+    width: 34.5rem;
+    height: 16.5rem;
+  }
+
+  @include responsives.resolution__mobile__l {
+    width: 26.5rem;
+    height: 16.5rem;
+  }
+
+  @include responsives.resolution__mobile {
+    width: 22.5rem;
+    height: 18rem;
+  }
+
+  @include responsives.resolution__mobile__s {
+    width: 18.5rem;
+  }
 }

@@ -1,28 +1,28 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import useGetRecipesData from "@hooks/useGetRecipesData";
-import { useIngredientsStore } from "@store/useIngredientsStore";
+import { useRecipesStore } from "@store/useRecipesStore";
 import Recipe from "./components/Recipe";
 import styles from "./RecipesList.module.scss";
 
-const RecipesList = () => {
-  const { ingredientsForUrl } = useIngredientsStore();
-  const { displayedRecipes } = useGetRecipesData();
+export interface IRecipe {
+  id: number;
+  image: string;
+  title: string;
+}
 
-  if (ingredientsForUrl.length > 0) {
-    return (
-      <div className={styles.recipesList}>
-        {displayedRecipes.map((recipe: any) => (
-          <Recipe
-            key={recipe.id}
-            recipeId={recipe.id}
-            recipeTitle={recipe.title}
-            recipeImage={recipe.image}
-          />
-        ))}
-      </div>
-    );
-  }
-  return null;
+const RecipesList = () => {
+  const { recipesToDisplay } = useRecipesStore();
+
+  return (
+    <div className={styles.recipesList}>
+      {recipesToDisplay.map((recipe: IRecipe) => (
+        <Recipe
+          key={recipe.id}
+          recipeId={recipe.id}
+          recipeTitle={recipe.title}
+          recipeImage={recipe.image}
+        />
+      ))}
+    </div>
+  );
 };
 
 export default RecipesList;

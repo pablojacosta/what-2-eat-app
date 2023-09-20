@@ -3,9 +3,18 @@
 .searchSection {
   display: flex;
   gap: 5rem;
-  width: 100%;
+  width: 28.7rem;
 
   @include responsives.resolution__mobile__m {
+    width: 25.7rem;
     gap: 2rem;
+  }
+
+  @include responsives.resolution__mobile {
+    width: 24.7rem;
+  }
+
+  @include responsives.resolution__mobile__s {
+    width: 18.5rem;
   }
 }

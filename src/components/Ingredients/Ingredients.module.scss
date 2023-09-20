@@ -1,17 +1,12 @@
 @use "@styles/_responsives" as responsives;
 
 .ingredients {
-  width: 28.7rem;
+  width: 50rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  @include responsives.resolution__mobile__m {
-    width: 25.7rem;
-  }
-
-  @include responsives.resolution__mobile {
-    width: 24.7rem;
-  }
-
-  @include responsives.resolution__mobile__s {
-    width: 18.5rem;
+  @include responsives.resolution__laptop__xs {
+    width: 100%;
   }
 }

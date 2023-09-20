@@ -1,11 +1,10 @@
 import useGetRecipesData from "@hooks/useGetRecipesData";
-import styles from "./SearchButton.module.scss";
 
 const SearchButton = () => {
   const { getRecipesData } = useGetRecipesData();
 
   return (
-    <div className={styles.searchButton}>
+    <div>
       <button onClick={getRecipesData}>Search recipes!</button>
     </div>
   );

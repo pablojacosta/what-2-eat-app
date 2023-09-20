@@ -6,8 +6,20 @@
   margin-bottom: 3rem;
   border-radius: 1rem;
   display: flex;
-  width: 100%;
   position: relative;
+  width: 28.7rem;
+
+  @include responsives.resolution__mobile__m {
+    width: 25.7rem;
+  }
+
+  @include responsives.resolution__mobile {
+    width: 24.7rem;
+  }
+
+  @include responsives.resolution__mobile__s {
+    width: 18.5rem;
+  }
 
   .backText {
     position: absolute;

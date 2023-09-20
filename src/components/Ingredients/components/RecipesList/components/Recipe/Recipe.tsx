@@ -1,17 +1,17 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./Recipe.module.scss";
+import { api_key } from "@constants/env";
 
 interface IRecipe {
-  recipeId: any;
+  recipeId: number;
   recipeTitle: string;
-  recipeImage: any;
+  recipeImage: string;
 }
 
 const Recipe = ({ recipeId, recipeTitle, recipeImage }: IRecipe) => {
   const [recipeUrl, setRecipeUrl] = useState("");
-  const url = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=3e8f01e5d1934f8ba4962282bad7701f`;
+  const url = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${api_key}`;
 
   useEffect(() => {
     axios.get(url).then((response) => setRecipeUrl(response.data.sourceUrl));
@@ -19,21 +19,15 @@ const Recipe = ({ recipeId, recipeTitle, recipeImage }: IRecipe) => {
 
   return (
     <div className={styles.recipe}>
-      <div>
-        <div>
-          <picture>
-            <img src={recipeImage} alt="recipe" />
-          </picture>
-        </div>
-        <div>
-          <div>{recipeTitle}</div>
-          <div>
-            <div>
-              <a href={recipeUrl}>Go to Recipe</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <picture>
+        <img src={recipeImage} alt="recipe" />
+      </picture>
+      <h5 className={styles.title}>{recipeTitle}</h5>
+      <button>
+        <a href={recipeUrl} target="_blank" rel="noopener noreferrer">
+          Go to Recipe
+        </a>
+      </button>
     </div>
   );
 };
