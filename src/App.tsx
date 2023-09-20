@@ -9,20 +9,28 @@ import { useIngredientsStore } from "./store/useIngredientsStore";
 const App = () => {
   const { newIngredient, ingredients, setNewIngredient, setIngredients } =
     useIngredientsStore();
+  const ingredientIsInSuggestions =
+    newIngredient &&
+    suggestions.map((ingredient) => ingredient.name).includes(newIngredient);
+  const newIngredientIsNotAlreadyIncluded =
+    newIngredient && !ingredients.includes(newIngredient);
+  const isAbleToAddIngredient =
+    ingredients &&
+    ingredientIsInSuggestions &&
+    newIngredientIsNotAlreadyIncluded;
 
   useEffect(() => {
-    if (
-      ingredients &&
-      newIngredient &&
-      suggestions
-        .map((ingredient) => ingredient.name)
-        .includes(newIngredient) &&
-      !ingredients.includes(newIngredient)
-    ) {
+    if (isAbleToAddIngredient) {
       setIngredients(ingredients.concat(newIngredient));
       setNewIngredient("");
     }
-  }, [ingredients, newIngredient, setIngredients, setNewIngredient]);
+  }, [
+    isAbleToAddIngredient,
+    ingredients,
+    newIngredient,
+    setIngredients,
+    setNewIngredient,
+  ]);
 
   return (
     <div className={styles.app}>
