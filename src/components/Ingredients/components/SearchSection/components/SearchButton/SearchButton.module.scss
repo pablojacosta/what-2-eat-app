@@ -2,12 +2,12 @@
   width: 13rem;
 
   button {
-    background-color: var(--color-beta);
+    background-color: var(--color-orange);
     border: none;
 
     &:hover {
       background-color: var(--color-white);
-      color: var(--color-beta);
+      color: var(--color-orange);
     }
   }
 }
