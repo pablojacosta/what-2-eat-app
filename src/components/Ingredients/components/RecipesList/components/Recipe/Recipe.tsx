@@ -15,7 +15,6 @@ const Recipe = ({ recipeId, recipeTitle, recipeImage }: IRecipe) => {
 
   useEffect(() => {
     axios.get(url).then((response) => setRecipeUrl(response.data.sourceUrl));
-    console.log("Data Fulfilled");
   }, [recipeId, url]);
 
   return (
