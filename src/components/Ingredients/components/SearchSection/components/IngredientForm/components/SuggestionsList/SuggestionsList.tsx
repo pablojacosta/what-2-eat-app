@@ -2,25 +2,45 @@
 import { useIngredientsStore } from "@store/useIngredientsStore";
 import { ISuggestions, useSuggestionsStore } from "@store/useSuggestionsStore";
 import styles from "./SuggestionsList.module.scss";
+import Message from "../Message";
 
 const SuggestionsList = () => {
   const { filteredSuggestions, setFilteredSuggestions, setShowSuggestions } =
     useSuggestionsStore();
-  const { setNewIngredient, ingredients } = useIngredientsStore();
+  const {
+    setNewIngredient,
+    ingredients,
+    setIsAlreadySelected,
+    isAlreadySelected,
+    showMessage,
+    setShowMessage,
+  } = useIngredientsStore();
   const isMaxIngredients = ingredients.length === 9;
+  const checkIsSelected = (e: any) => {
+    return ingredients.includes(e.target.innerText);
+  };
 
   const onClickSuggestion = (e: any) => {
-    if (!isMaxIngredients) {
+    if (!isMaxIngredients && !checkIsSelected(e)) {
+      setIsAlreadySelected(false);
       setFilteredSuggestions([]);
       setNewIngredient(e.target.innerText);
       setShowSuggestions(false);
     }
-    setShowSuggestions(false);
+
+    if (checkIsSelected(e)) {
+      setIsAlreadySelected(true);
+      setShowSuggestions(false);
+      setShowMessage(true);
+      setNewIngredient("");
+    }
   };
+
+  console.log("isAlreadySelected", isAlreadySelected);
 
   return (
     <div className={styles.suggestionsList}>
-      {filteredSuggestions.length ? (
+      {filteredSuggestions.length > 0 && !showMessage && (
         <ul>
           {filteredSuggestions.map((suggestion: ISuggestions) => (
             <li key={suggestion.id} onClick={onClickSuggestion}>
@@ -28,14 +48,12 @@ const SuggestionsList = () => {
             </li>
           ))}
         </ul>
-      ) : isMaxIngredients ? (
-        <div>
-          <p>Sorry, nine ingredients max...</p>
-        </div>
-      ) : (
-        <div>
-          <p>Sorry, no suggestions... Please type again.</p>
-        </div>
+      )}
+      {showMessage && (
+        <Message
+          isMaxIngredients={isMaxIngredients}
+          isAlreadySelected={isAlreadySelected}
+        />
       )}
     </div>
   );

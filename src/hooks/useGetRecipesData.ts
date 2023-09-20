@@ -5,7 +5,7 @@ import { api_key } from "@constants/env";
 import { useRecipesStore } from "@store/useRecipesStore";
 
 const useGetRecipesData = () => {
-  const { ingredients, setIngredients } = useIngredientsStore();
+  const { ingredients, setIngredients, setShowMessage } = useIngredientsStore();
   const [isLoading, setIsLoading] = useState(false);
   const { setRecipesToDisplay } = useRecipesStore();
   const url = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${api_key}&ingredients=${[
@@ -14,6 +14,7 @@ const useGetRecipesData = () => {
 
   const getRecipesData = async () => {
     if (ingredients && ingredients.length > 0) {
+      setShowMessage(false);
       setIsLoading(true);
       await axios
         .get(url)

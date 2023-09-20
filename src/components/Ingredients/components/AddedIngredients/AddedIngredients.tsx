@@ -3,7 +3,7 @@ import IconCloseOutline from "@elements/Icons/CloseIcon/CloseIcon";
 import styles from "./AddedIngredients.module.scss";
 
 const AddedIngredients = () => {
-  const { ingredients, setIngredients } = useIngredientsStore();
+  const { ingredients, setIngredients, setShowMessage } = useIngredientsStore();
 
   const onClickRemoveIngredient = (ingredientToRemove: string) => {
     if (ingredients) {
@@ -11,6 +11,7 @@ const AddedIngredients = () => {
         (ingredient: string) => ingredient !== ingredientToRemove
       );
       setIngredients(filteredIngredients);
+      setShowMessage(false);
     }
   };
 

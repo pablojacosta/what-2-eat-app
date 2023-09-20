@@ -5,15 +5,20 @@ import { INGREDIENTS_STORE } from "@constants/env";
 interface IIngredientsStore {
   newIngredient: string | null;
   ingredients: string[];
+  showMessage: boolean;
+  isAlreadySelected: boolean;
   setNewIngredient: (ingredient: string) => void;
   setIngredients: (ingredients: string[]) => void;
+  setShowMessage: (showMeesage: boolean) => void;
+  setIsAlreadySelected: (isAlreadySelected: boolean) => void;
   clearStore: () => void;
 }
 
 const initialState = {
   newIngredient: null,
   ingredients: [],
-  ingredientsForUrl: [],
+  showMessage: false,
+  isAlreadySelected: false,
 };
 
 export const useIngredientsStore = create<IIngredientsStore>()(
@@ -29,6 +34,16 @@ export const useIngredientsStore = create<IIngredientsStore>()(
         set((state) => ({
           ...state,
           ingredients,
+        })),
+      setShowMessage: (showMessage: boolean) =>
+        set((state) => ({
+          ...state,
+          showMessage,
+        })),
+      setIsAlreadySelected: (isAlreadySelected: boolean) =>
+        set((state) => ({
+          ...state,
+          isAlreadySelected,
         })),
       clearStore: () => set(() => ({ ...initialState })),
     }),
