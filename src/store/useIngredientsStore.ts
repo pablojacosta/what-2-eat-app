@@ -5,10 +5,8 @@ import { INGREDIENTS_STORE } from "@constants/env";
 interface IIngredientsStore {
   newIngredient: string | null;
   ingredients: string[];
-  ingredientsForUrl: string[];
   setNewIngredient: (ingredient: string) => void;
   setIngredients: (ingredients: string[]) => void;
-  setIngredientsForUrl: (array: string[]) => void;
   clearStore: () => void;
 }
 
@@ -28,11 +26,6 @@ export const useIngredientsStore = create<IIngredientsStore>()(
           newIngredient,
         })),
       setIngredients: (ingredients: string[]) =>
-        set((state) => ({
-          ...state,
-          ingredients,
-        })),
-      setIngredientsForUrl: (ingredients: string[]) =>
         set((state) => ({
           ...state,
           ingredients,
