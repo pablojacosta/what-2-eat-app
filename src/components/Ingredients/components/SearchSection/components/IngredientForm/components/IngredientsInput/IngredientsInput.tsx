@@ -1,5 +1,5 @@
 import styles from "./IngredientsInput.module.scss";
-import suggestions from "../../../../../../../../ingredients.json";
+import suggestions from "../../../../../../../../utils/ingredients.json";
 import SuggestionsList from "./components/SuggestionsList";
 import { useIngredientsStore } from "../../../../../../../../store/useIngredientsStore";
 import { useSuggestionsStore } from "../../../../../../../../store/useSuggestionsStore";

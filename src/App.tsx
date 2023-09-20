@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Header from "./components/Header/Header";
-import suggestions from "./ingredients.json";
+import suggestions from "./utils/ingredients.json";
 import styles from "./App.module.scss";
 import "../src/styles/globals.scss";
 import Ingredients from "./components/Ingredients";
