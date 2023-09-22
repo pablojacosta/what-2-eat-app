@@ -36,8 +36,6 @@ const SuggestionsList = () => {
     }
   };
 
-  console.log("isAlreadySelected", isAlreadySelected);
-
   return (
     <div className={styles.suggestionsList}>
       {filteredSuggestions.length > 0 && !showMessage && (
